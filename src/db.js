@@ -1,10 +1,11 @@
 const { createClient } = require("@supabase/supabase-js");
 
 const url = process.env.SUPABASE_URL;
-const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const serviceRoleKey =
+  process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!url || !serviceRoleKey) {
-  console.error("Thiếu SUPABASE_URL hoặc SUPABASE_SERVICE_ROLE_KEY trong file .env");
+  console.error("Thiếu SUPABASE_URL hoặc SUPABASE_SECRET_KEY trong file .env");
   process.exit(1);
 }
 
